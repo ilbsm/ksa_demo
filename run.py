@@ -16,7 +16,7 @@ class MatrixComputing(ClusterComputing):
             p_id = self.input_job_id.split('/')[1]
             return self.organism + '/AF-{}-model_v1.cif'.format(p_id)
         else:
-            return 'AF-{}-model_v1.cif'.format(self.input_job_id)
+            return 'cif/AF-{}-model_v1.cif'.format(self.input_job_id)
 
     def do_compute(self):
         homfly_res = homfly(self.get_file_name(), max_cross=100, tries=200)
