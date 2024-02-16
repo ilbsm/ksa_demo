@@ -9,14 +9,11 @@ class MatrixComputing(ClusterComputing):
         super().__init__(args)
         self.struct_name = self.input_job_id
         print(f'JOB CONFIG: {self.job_config}')
+        print('JOB TYPE: {}'.format(self.job_config['slurm_pars']['JOB_TYPE']))
+        print('MY VAR: {}'.format(self.job_config['slurm_pars']['MY_VAR']))
 
     def get_file_name(self):
-        if '/' in self.input_job_id:
-            self.organism = self.input_job_id.split('/')[0]
-            p_id = self.input_job_id.split('/')[1]
-            return self.organism + '/AF-{}-model_v1.cif'.format(p_id)
-        else:
-            return 'cif/AF-{}-model_v1.cif'.format(self.input_job_id)
+        return f'cif/AF-{self.input_job_id}-model_v1.cif'
 
     def do_compute(self):
         homfly_res = homfly(self.get_file_name(), max_cross=100, tries=200)
