@@ -1,0 +1,2 @@
+#!/bin/bash
+faust -A kafka_slurm_agent.worker_agent -l info worker -p 6068

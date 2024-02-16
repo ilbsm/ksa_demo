@@ -1,0 +1,2 @@
+#!/bin/bash
+faust -A kafka_slurm_agent.cluster_agent -l info worker

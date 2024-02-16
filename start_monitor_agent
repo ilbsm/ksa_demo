@@ -1,0 +1,2 @@
+#!/bin/bash
+faust -A my_monitor_agent -l info worker -p 6067
