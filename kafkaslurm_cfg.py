@@ -1,6 +1,7 @@
 from os.path import expanduser, join
 import faust
 import socket
+import os
 
 PREFIX = os.path.dirname(__file__) # location of the project directory
 LOGS_DIR = PREFIX + '/logs' # Must exist
@@ -12,13 +13,14 @@ CLUSTER_NAME = 'pol_cluster' # Name of the Cluster, should reflect the name of y
 # CLUSTER_AGENT_CLASS = 'my_cluster_agent.MyClusterAgent' # (Optional) override the default class that implements the Cluster Agent
 
 # Connection to Kafka
-BOOTSTRAP_SERVERS = 'localhost:9092'
-KAFKA_SECURITY_PROTOCOL = 'PLAINTEXT'
-# KAFKA_SECURITY_PROTOCOL = 'SASL_PLAINTEXT'
-# KAFKA_SASL_MECHANISM = 'PLAIN'
-# KAFKA_USERNAME = 'user'
-# KAFKA_PASSWORD = 'pass'
-# KAFKA_FAUST_BROKER_CREDENTIALS = faust.SASLCredentials(username=KAFKA_USERNAME, password=KAFKA_PASSWORD)
+BOOTSTRAP_SERVERS = 'sih-60.cent.uw.edu.pl:49092'
+#BOOTSTRAP_SERVERS = 'localhost:9092'
+#KAFKA_SECURITY_PROTOCOL = 'PLAINTEXT'
+KAFKA_SECURITY_PROTOCOL = 'SASL_PLAINTEXT'
+KAFKA_SASL_MECHANISM = 'PLAIN'
+KAFKA_USERNAME = 'ksademo'
+KAFKA_PASSWORD = 'uyCETDUMeGAL60g'
+KAFKA_FAUST_BROKER_CREDENTIALS = faust.SASLCredentials(username=KAFKA_USERNAME, password=KAFKA_PASSWORD)
 
 TOPIC_PREFIX = 'pol' # Each project should have a separate set of topics on kafka where the jobs, their statuses, results (done) and errors will be placed
 TOPIC_NEW = f'{TOPIC_PREFIX}-new'
