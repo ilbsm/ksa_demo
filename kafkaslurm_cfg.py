@@ -30,6 +30,7 @@ CLUSTER_AGENT_NEW_GROUP = f'{TOPIC_PREFIX}_agent_new' # This group must be the s
 MONITOR_AGENT_NEW_GROUP = socket.gethostname() + '_monitor_agent_new' # you can have multiple monitors,
 # if the groups are different for them, then every one will obtain every result/status/error,
 # if you set it to the same value then the results/statuses/errors will be distributed between all monitors randomly
+HEARTBEAT_INTERVAL = 300.0 # in seconds, set to 0 to disable heartbeat
 
 # Kafka advanced options
 #from kafka.coordinator.assignors.range import RangePartitionAssignor
@@ -57,7 +58,6 @@ WORKER_NAME = 'my_worker_' + socket.gethostname()
 WORKER_AGENT_CLASS = 'my_worker_agent.MyWorkerAgent' # (Optional) override the default class that implements the Worker Agent
 WORKER_AGENT_MAX_WORKERS = 4
 WORKER_JOB_TIMEOUT = 360000 # in seconds
-HEARTBEAT_INTERVAL = 300.0 # in seconds, set to 0 to disable heartbeat
 WORKER_AGENT_URL = 'http://localhost:6068/'
 WORKER_AGENT_CONTEXT_PATH ='/' # Worker agent context_path i.e. if set to /ctx/ the worker agent will serve at $WORKER_AGENT_URL/ctx/
 #
