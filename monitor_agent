@@ -13,7 +13,7 @@ function start() {
     # tested with this , uncomment your command
     source ${DIR}/venv/bin/activate
     cd ${DIR}
-    faust -A af_monitor_agent -l info worker > ${DIR}/logs/monitor_agent_out.txt 2>&1 &
+    faust -A my_monitor_agent -l info worker > ${DIR}/logs/monitor_agent_out.txt 2>&1 &
     # write the pid to text to file to use it later
     app_pid=$!
     echo "Process started PID $app_pid"

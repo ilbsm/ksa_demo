@@ -10,12 +10,17 @@ knots using the *homfly* polynomial on protein structures downloaded from the [A
 Use the standard ``pip`` tool to install. The recommended way is to use a Python virtual environment:
 
 ``python3 -m venv venv``
-
 ``source venv/bin/activate``
-
 ``pip install -r requirements.txt``
 
 ## Running the demo
+
+### Kafka
+
+For development and testing I recommend using Kafka in Docker. At the moment only Kafka 3.x is supported (Kafka 4.x won't work due to the lack of support in aiokafka used by faust-streaming).
+You can use the provided script:
+
+``./run_kafka_docker.sh``
 
 ### Configuration
 
@@ -29,8 +34,8 @@ Please adjust the config file.
 
 ### Run
 
-1. Open a new terminal and start the **worker-agent** (``./start_worker_agent``)
-2. Open a new terminal and start the **monitor-agent** (``./start_monitor_agent``)
+1. Open a new terminal and start the **worker-agent** (``./start_worker_agent``). You can also run it in the background using ``./worker_agent start``.
+2. Open a new terminal and start the **monitor-agent** (``./start_monitor_agent``). You can also run it in the background using ``./monitor_agent start``.
 3. Submit new jobs using the ``submitter.py``
 4. While the submitted jobs are running you can monitor the statuses at: http://localhost:6067/mon/stats/ on the host on which you've started the **monitor-agent**.
 5. The output should be visible on the console of the **monitor-agent**.

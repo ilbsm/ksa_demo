@@ -9,20 +9,19 @@ LOGS_DIR = PREFIX + '/logs' # Must exist
 #SHARED_TMP = PREFIX + '/tmp' # This folder must exist - it is used to temporary store JSON files with job input parameters
 DEBUG = True
 
-CLUSTER_NAME = 'pol_cluster' # Name of the Cluster, should reflect the name of your HPC cluster, jobs will show where they were computed
+CLUSTER_NAME = 'demo_cluster' # Name of the Cluster, should reflect the name of your HPC cluster, jobs will show where they were computed
 # CLUSTER_AGENT_CLASS = 'my_cluster_agent.MyClusterAgent' # (Optional) override the default class that implements the Cluster Agent
 
 # Connection to Kafka
-BOOTSTRAP_SERVERS = 'sih-60.cent.uw.edu.pl:49092'
-#BOOTSTRAP_SERVERS = 'localhost:9092'
-#KAFKA_SECURITY_PROTOCOL = 'PLAINTEXT'
-KAFKA_SECURITY_PROTOCOL = 'SASL_PLAINTEXT'
-KAFKA_SASL_MECHANISM = 'PLAIN'
-KAFKA_USERNAME = 'ksademo'
-KAFKA_PASSWORD = 'uyCETDUMeGAL60g'
-KAFKA_FAUST_BROKER_CREDENTIALS = faust.SASLCredentials(username=KAFKA_USERNAME, password=KAFKA_PASSWORD)
+BOOTSTRAP_SERVERS = 'localhost:9092'
+KAFKA_SECURITY_PROTOCOL = 'PLAINTEXT'
+#KAFKA_SECURITY_PROTOCOL = 'SASL_PLAINTEXT'
+#KAFKA_SASL_MECHANISM = 'PLAIN'
+#KAFKA_USERNAME = 'demo'
+#KAFKA_PASSWORD = 'pass'
+#KAFKA_FAUST_BROKER_CREDENTIALS = faust.SASLCredentials(username=KAFKA_USERNAME, password=KAFKA_PASSWORD)
 
-TOPIC_PREFIX = 'pol' # Each project should have a separate set of topics on kafka where the jobs, their statuses, results (done) and errors will be placed
+TOPIC_PREFIX = 'demo' # Each project should have a separate set of topics on kafka where the jobs, their statuses, results (done) and errors will be placed
 TOPIC_NEW = f'{TOPIC_PREFIX}-new'
 TOPIC_STATUS = f'{TOPIC_PREFIX}-jobs'
 TOPIC_DONE = f'{TOPIC_PREFIX}-done'
@@ -44,7 +43,7 @@ HEARTBEAT_INTERVAL = 300.0 # in seconds, set to 0 to disable heartbeat
 #
 # MONITOR_ONLY_DO_NOT_SUBMIT = True # set this to make the cluster agent only monitor existing jobs
 
-CLUSTER_JOB_NAME_SUFFIX = '_POL' # All jobs on the slurm cluster will have this suffix, this is important for cluster agent to be able to identify jobs that it should manage
+CLUSTER_JOB_NAME_SUFFIX = '_DEMO' # All jobs on the slurm cluster will have this suffix, this is important for cluster agent to be able to identify jobs that it should manage
 CLUSTER_JOB_TIMEOUT = 360000 # in seconds # default timeout for jobs, the timeout can be also specified per job in the job configuration
 #POLL_INTERVAL = 20.0, # How often to poll for new jobs
 SLURM_PARTITION ='all' # Name of Slurm partition to submit jobs to
