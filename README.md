@@ -10,7 +10,9 @@ knots using the *homfly* polynomial on protein structures downloaded from the [A
 Use the standard ``pip`` tool to install. The recommended way is to use a Python virtual environment:
 
 ``python3 -m venv venv
+
 source venv/bin/activate
+
 pip install -r requirements.txt``
 
 ## Running the demo
